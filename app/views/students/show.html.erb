@@ -1,0 +1,53 @@
+
+<center id="content_referesh">
+
+<%= link_to 'Back', students_path %>
+
+<h1> Details of Student ID : <%= @student.id %></h1>
+
+<%= link_to "Edit Student", edit_student_path, class: "btn btn-success", data: {bs_toggle: 'modal', bs_target: '#EditStudentForm', remote: true }%>
+
+<%= link_to "Delete Student", students_path, class: "btn btn-danger", data: {bs_toggle: 'modal', bs_target: '#EditStudentForm', remote: true }%><br><br>
+
+  <h5> Student Name : <%= @student.name %></h5><br>
+  <h5> Student Age : <%= @student.age %></h5><br>
+  <h5> Student Address :<%= @student.address %></h5><br>
+  <h5> Student Pincode : <%= @student.pincode %> </h5><br>
+
+  <% if @student.avatar.present? %>
+  <h5> Image: <%= image_tag @student.avatar %> </h5><br>
+  <% end %>
+
+</center>
+
+<div class="modal fade" id="EditStudentForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="EditStudentFormLabel">Edit Student Form</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      </div>
+      <div id="EditStudentForm">
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function uploadimage(){
+    var formData = new FormData();
+        var url = $('#update_form').attr("action");
+        var fileimage = $('#avatar')[0].files;
+        formData.append("avatar", fileimage[0]);
+         $.ajax({
+            type: "PATCH",
+            url: url,
+            data: formData,
+            processData: false,
+            contentType: false,
+        });
+     }
+</script>

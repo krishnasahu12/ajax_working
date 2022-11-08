@@ -1,0 +1,28 @@
+<center>
+
+<h1> List of All Students </h1><br><br>
+
+<div id="all_students">
+  <% @students.each do |f| %>
+    <%= render 'student', student: f %>
+  <% end %>
+</div>
+
+<%= link_to "Create New Student", new_student_path, class: "btn btn-success", data: {bs_toggle: 'modal', bs_target: '#NewStudentForm', remote: true }%><br><br>
+
+</center>
+
+<div class="modal fade" id="NewStudentForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="NewStudentFormLabel">New Student Form</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div id="NewStudentForm">
+      </div>
+    </div>
+  </div>
+</div>

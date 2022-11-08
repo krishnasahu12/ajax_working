@@ -1,0 +1,36 @@
+<center>
+
+<div style="background-color: #F9F9F9; width: 500px; margin-left: 200px;">
+	<%= form_for(student, :html => {:id => "update_form"}, remote: true) do |form| %>
+    <div class="modal-body" style="margin-top: 70px; margin-bottom: 10px;" >
+	<h1>Student Form</h1>
+
+	<%= form.label :name %><br>
+	<%= form.text_field :name %><br>
+
+    <%= form.label :age %><br>
+	<%= form.text_field :age %><br>
+
+	<%= form.label :gender %>
+    <%= form.radio_button :gender, 'male'%> Male
+    <%= form.radio_button :gender, 'female' %> Female<br>
+
+	<%= form.label :address %><br>
+	<%= form.text_area :address %><br>
+
+	<%= form.label :pincode %><br>
+	<%= form.text_field :pincode %><br>
+
+	<%= form.label :Choose_Image %>
+    <%= form.file_field :avatar, id:"avatar", onchange: "uploadimage()" %>
+
+    </div>
+
+	<div class="modal-footer">
+  	    <button type="button" class="btn btn-secondary close-modal" data-bs-dismiss="modal">Close</button>
+		<%= form.submit "Create Student", class:"btn btn-primary" %>
+   	</div>
+    <% end %>
+</center>
+</div>
+
