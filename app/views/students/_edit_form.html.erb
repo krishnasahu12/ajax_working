@@ -3,8 +3,8 @@
 
 <div style="background-color: #F9F9F9; width: 400px; margin-left: 200px;">
 
-	<%= form_for(student, remote: true) do |form| %>
-    <div class="modal-body" style="margin-top: 20px; margin-bottom: 10px;" >
+	<%= form_for(student, :html => {:id => "update_form"}, remote: true) do |form| %>
+    <div class="modal-body" style="margin-top: 20px; margin-bottom:     10px;" >
 		<h1>Student Form</h1>
 
 		<%= form.label :name %><br>
@@ -21,14 +21,15 @@
 		<%= form.text_area :address %><br>
 
 		<%= form.label :pincode %><br>
-		<%= form.text_field :pincode %><br><br>
+		<%= form.text_field :pincode %><br>
 
+		<%= form.label :Choose_Image %>
 		<%= form.file_field :avatar, id:"avatar", onchange: "uploadimage()" %>
     </div>
 
 	<div class="modal-footer">
   	    <button type="button" class="btn btn-secondary close-modal" data-bs-dismiss="modal">Close</button>
-		<%= form.submit "Create Student", class:"btn btn-primary" %>
+		<%= form.submit "Update Student", class:"btn btn-primary" %>
    	</div>
 
     <% end %>

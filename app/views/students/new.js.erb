@@ -1,1 +1,2 @@
-$("#NewStudentForm").html("<%= escape_javascript render('form', student: @student)%>");
+$("#NewStudentForm").html("<%= escape_javascript render('form', student: @student, remote: true )%>");
+$(".modal-footer").close()

@@ -6,6 +6,9 @@ class StudentsController < ApplicationController
 
   def new
     @student =  Student.new
+    respond_to do |format|
+      format.js
+    end
   end
 
   def create
@@ -14,7 +17,7 @@ class StudentsController < ApplicationController
       respond_to do |format|
         format.js
       end
-    else
+    else  
       render :new
     end
   end
@@ -33,6 +36,14 @@ class StudentsController < ApplicationController
     @student.update(student_params)
     respond_to do |format|
       format.js
+    end
+  end
+
+  def destroy
+    @student = Student.find(params[:id])
+    @student.destroy
+    respond_to do |format|
+      format.js 
     end
   end
 

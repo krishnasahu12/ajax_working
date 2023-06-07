@@ -7,7 +7,7 @@
 
 <%= link_to "Edit Student", edit_student_path, class: "btn btn-success", data: {bs_toggle: 'modal', bs_target: '#EditStudentForm', remote: true }%>
 
-<%= link_to "Delete Student", students_path, class: "btn btn-danger", data: {bs_toggle: 'modal', bs_target: '#EditStudentForm', remote: true }%><br><br>
+<%= link_to "Delete Student", student_path(@student), method: :delete, class: "btn btn-danger", remote: true %><br><br>
 
   <h5> Student Name : <%= @student.name %></h5><br>
   <h5> Student Age : <%= @student.age %></h5><br>
@@ -20,7 +20,7 @@
 
 </center>
 
-<div class="modal fade" id="EditStudentForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="EditStudentForm" tabindex="-1" role="dialog" aria-labelledby="EditStudentFormLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
